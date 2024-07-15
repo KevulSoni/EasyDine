@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff5733, #ffb84d);
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .input-box {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-box .details {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #666;
+        }
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button input[type="submit"] {
+            background: #ff5733;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        .button input[type="submit"]:hover {
+            background: #e64c00;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .footer a {
+            color: #ff5733;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Sign Up</div>
+    <div class="content">
+      <form method="post">
+        {% csrf_token %}
+        <div class="input-box">
+          <span class="details">Username</span>
+          {{ form.username }}
+        </div>
+        <div class="input-box">
+          <span class="details">Email</span>
+          {{ form.email }}
+        </div>
+        <div class="input-box">
+          <span class="details">Phone Number</span>
+          {{ form.phone }}
+        </div>
+        <div class="input-box">
+          <span class="details">Password</span>
+          {{ form.password1 }}
+        </div>
+        <div class="input-box">
+          <span class="details">Confirm Password</span>
+          {{ form.password2 }}
+        </div>
+        <div class="button">
+          <input type="submit" value="Sign Up">
+        </div>
+      </form>
+      <div class="footer">
+        Already have an account? <a href="/">Login here</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
